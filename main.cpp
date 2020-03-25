@@ -3,8 +3,11 @@
 uint8_t convHex2Dec_u2(uint8_t in)
 {
   uint8_t a = in>>4;
-  uint8_t b = in%0x10;
-  uint8_t out = (a<<3 | a<<1) + b;
+  uint8_t b = in&0x0F;
+  uint8_t c = a<<3;
+  uint8_t d = a<<1;
+  //printf("%#x, %#x, %#x, %#x\n", a,b,c,d);
+  uint8_t out = c +d + b;
 
   return out;
 }
